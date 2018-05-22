@@ -5,6 +5,13 @@ public class MealBookingDetails {
 	private String item_code;
 	private String price;
 	private String purchase_date;
+	private String mealRef;
+	public String getMealRef() {
+		return mealRef;
+	}
+	public void setMealRef(String mealRef) {
+		this.mealRef = mealRef;
+	}
 	public String getUni_roll() {
 		return uni_roll;
 	}

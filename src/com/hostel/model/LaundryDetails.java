@@ -6,6 +6,13 @@ public class LaundryDetails {
 	private String price;
 	private String quantity;
 	private String date;
+	private String ref_no;
+	public String getRef_no() {
+		return ref_no;
+	}
+	public void setRef_no(String ref_no) {
+		this.ref_no = ref_no;
+	}
 	public String getUni_roll() {
 		return uni_roll;
 	}

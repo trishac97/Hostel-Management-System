@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,6 +43,9 @@ public class room_service extends HttpServlet {
 		GirlStudDAO cdaoobj=new GirlStudDAO(); 	 
 		RoomServiceDetails roomobj=new RoomServiceDetails();
 		HttpSession session = request.getSession(true);
+		 Random r=new Random();
+	        int rand_int1 =r.nextInt(90000);
+	        String rand=Integer.toString(rand_int1);
 	       String uni_roll=(String)session.getAttribute("uni_roll");
 	       String room_no=(String)request.getParameter("room_no");
 	       String hostel=(String)request.getParameter("hostel");
@@ -54,12 +58,14 @@ public class room_service extends HttpServlet {
 	       roomobj.setRoom_no(room_no);
 	       roomobj.setHostel(hostel);
 	       roomobj.setService(service);
+	       roomobj.setRef_no(rand);
+
 	       roomobj.setAvailability_time(availability_time);
 
 
 	       boolean replyfromdao = cdaoobj.room_service(roomobj);
 	        String nextviewpage="";
-		    String reply="Room service is being recorded. You will be served as soon as possible";
+		    String reply="Room service is being recorded against Reference number:" +rand+". You will be served as soon as possible";
 		    if(replyfromdao)
 		    {
 		    	request.setAttribute("errormsg", reply);

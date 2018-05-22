@@ -61,7 +61,7 @@
 					</div>
 
 				</form>
-<strong><font color="blue"><center>Click Here to Register</center></font></strong>
+<strong><a href="Reg_girl.jsp"><font color="white"><center>Click Here to Register</center></font></a></strong>
 <label></label>
 			</div>
 		</div>

@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,7 +43,9 @@ public class Health_care extends HttpServlet {
 	      //CREATE OBJECT OF DAO CLASS
 		GirlStudDAO cdaoobj=new GirlStudDAO(); 	 
 		HealthCareDetails serobj=new HealthCareDetails();
-
+		    Random r=new Random();
+	        int rand_int1 =r.nextInt(90000);
+	        String rand=Integer.toString(rand_int1);
            HttpSession session = request.getSession(true);
 	       String uni_roll=(String)session.getAttribute("uni_roll");
 	       String room_no=(String)request.getParameter("room_no");
@@ -60,18 +63,20 @@ public class Health_care extends HttpServlet {
 	       serobj.setMed_name(med_name);
 	       serobj.setPrice(price);
 	       serobj.setQuantity(quantity);
+	       serobj.setRef_no(rand);
+
 	       boolean replyfromdao = cdaoobj.health_care(serobj);
 	        String nextviewpage="";
-		    String reply="Medicine purchase details is being recorded";
+		    String reply="Medicine purchase details is being recorded with ref_no: "+rand;
 		    if(replyfromdao)
 		    {
 		    	request.setAttribute("errormsg", reply);
-		    	nextviewpage ="Health-Care.jsp";
+		    	nextviewpage ="Health-Care_boy.jsp";
 		    }
 		    else
 		    {
 		    	request.setAttribute("errormsg", "Oops! Something went wrong.");
-		    	nextviewpage ="Health-Care.jsp";
+		    	nextviewpage ="Health-Care_boy.jsp";
 		    }
 		          
 		    RequestDispatcher rd = request.getRequestDispatcher(nextviewpage);

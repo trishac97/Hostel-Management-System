@@ -47,6 +47,7 @@ public class Home_in_out extends HttpServlet {
 	       String end_date=(String)request.getParameter("end_date");
 	       String emergency_contact=(String)request.getParameter("emergency_contact");
 	       String reason=(String)request.getParameter("reason");
+	       String hostel_name=(String)request.getParameter("hostel_name");
 
 
 	       homeobj.setUni_roll(uni_roll);
@@ -54,6 +55,7 @@ public class Home_in_out extends HttpServlet {
 	       homeobj.setEnd_date(end_date);
 	       homeobj.setEmergency_contact(emergency_contact);
 	       homeobj.setReason(reason);
+	       homeobj.setHostel_name(hostel_name);
 
 
 	       boolean replyfromdao = cdaoobj.homeinout(homeobj);

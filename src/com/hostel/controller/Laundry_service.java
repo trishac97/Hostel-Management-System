@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,6 +38,11 @@ public class Laundry_service extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	      
+		
+		
+		 Random r=new Random();
+	       int rand_int1 =r.nextInt(90000);
+	       String rand=Integer.toString(rand_int1);
 	      //CREATE OBJECT OF DAO CLASS
 		GirlStudDAO cdaoobj=new GirlStudDAO(); 	 
 		LaundryDetails lauobj=new LaundryDetails();
@@ -55,9 +61,10 @@ public class Laundry_service extends HttpServlet {
 	       lauobj.setPrice(price);
 	       lauobj.setDate(today);
 	       lauobj.setQuantity(quantity);
+	       lauobj.setRef_no(rand);
 	       boolean replyfromdao = cdaoobj.laundry(lauobj);
 	        String nextviewpage="";
-		    String reply="Laundry details is being recorded";
+		    String reply="Laundry details is being recorded for Reference number: "+rand;
 		    if(replyfromdao)
 		    {
 		    	request.setAttribute("errormsg", reply);

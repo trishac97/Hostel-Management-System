@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,6 +37,9 @@ public class meal_booking extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	      
+		 Random r=new Random();
+	        int rand_int1 =r.nextInt(90000);
+	        String rand=Integer.toString(rand_int1);
 	      //CREATE OBJECT OF DAO CLASS
 		GirlStudDAO cdaoobj=new GirlStudDAO(); 	 
 		BreakfastDetails breakobj=new BreakfastDetails();
@@ -52,9 +56,10 @@ public class meal_booking extends HttpServlet {
 	       mealobj.setPrice(price);
 	       mealobj.setUni_roll(uni_roll);
 	       mealobj.setPurchase_date(today);
+	       mealobj.setMealRef(rand);
 	       boolean replyfromdao = cdaoobj.mealBooking(mealobj);
 	        String nextviewpage="";
-		    String reply="The Meal is being booked";
+		    String reply="The Meal is being booked with coupon id: "+rand;
 		    if(replyfromdao)
 		    {
 		    	request.setAttribute("errormsg", reply);

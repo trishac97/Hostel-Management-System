@@ -21,6 +21,7 @@ import java.util.Random;
 import javax.servlet.http.HttpSession;
 
 import com.hostel.dao.ConnectionByStaticMethod;
+import com.hostel.model.BoysHostelDetails;
 import com.hostel.model.BreakfastDetails;
 import com.hostel.model.ComplaintDetails;
 import com.hostel.model.DinnerDetails;
@@ -55,8 +56,10 @@ public class GirlStudDAO
 		     
 		     if(rs.next())
 		     {
+		    	 if(rs.getString(11).equals("true")) {
 		    	 first_name = rs.getString(3);
 		    	 last_name=rs.getString(4);
+		     }
 		     }
 	    }catch(SQLException e){System.out.print(e.toString());}
 	     finally 	     {
@@ -66,6 +69,49 @@ public class GirlStudDAO
 		 }
 	    return first_name;
 	}
+	public boolean girlRegistration(GirlsHostelDetails docobj) 
+	{
+		Connection connectionobject = null;
+		PreparedStatement pst = null;
+		boolean f = false;
+		try
+		{
+	         connectionobject = ConnectionByStaticMethod.getMySQLConnection();
+		     
+	        //connectionobject = ConnectionFactoryBySingletonClass.getConnection();
+	      	 
+	         //JDBC STEP 3
+	         //CREATE QUERY
+	         pst = connectionobject.prepareStatement("insert into stud_girl values(?,?,?,?,?,?,?,?,?,?,?,?)");
+		     
+		     pst.setString(1, docobj.getG_email());
+		     pst.setString(2, docobj.getPassword());
+		     pst.setString(3, docobj.getUni_roll());
+		     pst.setString(4, docobj.getFirst_name());
+		     pst.setString(5, docobj.getLast_name());
+		     pst.setString(6, docobj.getYear());
+		     pst.setString(7, docobj.getStream());
+		     pst.setString(8, docobj.getAddress());
+		     pst.setString(9, docobj.getMobile());
+		     pst.setString(10, docobj.getHostel_name());
+		     pst.setString(11, "false");
+		     pst.setString(12, docobj.getParent_mob());
+		    
+		     //JDBC STEP 4
+		     //EXECUTE QUERY
+		     int i = pst.executeUpdate();		     
+		     if(i > 0 )
+		    	 f = true;
+           
+	    }catch(SQLException e){System.out.print(e.toString());}
+	     finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+	       ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+		
+	    return f;
+	}
 	public boolean girlUpdate(GirlsHostelDetails girlobj) {
 		Connection connectionobject=null;
 		PreparedStatement pst=null;
@@ -73,7 +119,7 @@ public class GirlStudDAO
 		boolean f=false;
 		try {
 			connectionobject=ConnectionByStaticMethod.getMySQLConnection();
-			pst=connectionobject.prepareStatement("update stud_girl set last_name=?,g_email=?,year=?,password=?,mobile=?,address=?,hostel_name=? where uni_roll=?");
+			pst=connectionobject.prepareStatement("update stud_girl set last_name=?,g_email=?,year=?,password=?,mobile=?,address=?,hostel=? where uni_roll=?");
 			pst.setString(1, girlobj.getLast_name());
 			pst.setString(2, girlobj.getG_email());
 			pst.setString(3, girlobj.getYear());
@@ -148,6 +194,61 @@ public class GirlStudDAO
 		
 	    return breaklist;
 	}
+	
+	public List<GirlsHostelDetails> fetchAllDetails(String uni_roll) 
+	{
+		Connection connectionobject = null;
+		PreparedStatement pst = null;
+		ResultSet rs =null;
+		List<GirlsHostelDetails> girllist= new ArrayList<GirlsHostelDetails>();
+		try
+		{
+			
+	         connectionobject = ConnectionByStaticMethod.getMySQLConnection();
+		     
+	        // Connection connectionobject = ConnectionFactoryBySingletonClass.getConnection();
+	      	 	         
+	         
+	            pst = connectionobject.prepareStatement("select * from stud_girl where uni_roll=?");
+	            pst.setString(1, uni_roll);
+	         
+		     
+	         rs = pst.executeQuery();
+		     
+		     while(rs.next())
+		     {
+		    	 //CREATE CUSTOMER DETAIL OBJECT
+		    	 GirlsHostelDetails girlobj = new GirlsHostelDetails();
+		    	 
+		    	 //FETCH FROM RESULTSET & STORE VALUE WITIN OBJECT
+		    	girlobj.setG_email(rs.getString(1));
+		    	girlobj.setPassword(rs.getString(2));
+		    	girlobj.setFirst_name(rs.getString(3));
+		    	girlobj.setLast_name(rs.getString(4));
+		    	girlobj.setYear(rs.getString(5));
+		    	girlobj.setStream(rs.getString(6));
+		    	girlobj.setUni_roll(rs.getString(7));
+		    	girlobj.setAddress(rs.getString(8));
+		    	girlobj.setMobile(rs.getString(9));
+		    	girlobj.setHostel_name(rs.getString(10));
+		    	girlobj.setFlag(rs.getString(11));
+		    	girlobj.setParent_mob(rs.getString(12));
+	System.out.print("U entered:"+girlobj.getMobile());
+				//ADDED TO THE ARRAYLIST
+				girllist.add(girlobj);
+				
+		     }
+	    }catch(SQLException e){System.out.print(e.toString());}
+		finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+		   ConnectionByStaticMethod.closeMySQLResulsetConnection(rs);
+	       ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+		
+	    return girllist;
+	}
+	
 	
 	public List<LunchDetails> fetchAllLunch() 
 	{
@@ -256,11 +357,12 @@ public class GirlStudDAO
 		System.out.println("U entered"+mealobj.getItem_code());
 		try {
 			connectionobject=ConnectionByStaticMethod.getMySQLConnection();
-			pst=connectionobject.prepareStatement("insert into meal_booking values(?,?,?,?)");
+			pst=connectionobject.prepareStatement("insert into meal_booking values(?,?,?,?,?)");
 			pst.setString(1, mealobj.getUni_roll());
 			pst.setString(2, mealobj.getItem_code());
 			pst.setString(3, mealobj.getPrice());
 			pst.setString(4, mealobj.getPurchase_date());
+			pst.setString(5, mealobj.getMealRef());
 
 
 			int i=pst.executeUpdate();
@@ -281,6 +383,8 @@ public class GirlStudDAO
 	    return f;
 	}
 	
+	
+	
 	public boolean complaint(ComplaintDetails comobj) {
 		Connection connectionobject=null;
 		PreparedStatement pst=null;
@@ -288,7 +392,7 @@ public class GirlStudDAO
 		int j;
 		try {
 			connectionobject=ConnectionByStaticMethod.getMySQLConnection();
-			pst=connectionobject.prepareStatement("insert into complaint_box values(?,?,?)");
+			pst=connectionobject.prepareStatement("insert into complaint_box_girls values(?,?,?)");
 			pst.setString(1, comobj.getUni_roll());
 			pst.setString(2, comobj.getComplaint());
 			pst.setString(3, comobj.getDate());
@@ -318,12 +422,14 @@ public class GirlStudDAO
 		int j;
 		try {
 			connectionobject=ConnectionByStaticMethod.getMySQLConnection();
-			pst=connectionobject.prepareStatement("insert into laundry values(?,?,?,?,?)");
+			pst=connectionobject.prepareStatement("insert into laundry values(?,?,?,?,?,?)");
 			pst.setString(1, lauobj.getUni_roll());
 			pst.setString(2, lauobj.getWeight());
 			pst.setString(3, lauobj.getPrice());
 			pst.setString(4, lauobj.getQuantity());
 			pst.setString(5, lauobj.getDate());
+			pst.setString(6, lauobj.getRef_no());
+
 
 			int i=pst.executeUpdate();
 			if(i>0)
@@ -350,12 +456,13 @@ public class GirlStudDAO
 		int j;
 		try {
 			connectionobject=ConnectionByStaticMethod.getMySQLConnection();
-			pst=connectionobject.prepareStatement("insert into home_in_out values(?,?,?,?,?)");
+			pst=connectionobject.prepareStatement("insert into home_in_out values(?,?,?,?,?,?)");
 			pst.setString(1, homeobj.getUni_roll());
 			pst.setString(2, homeobj.getStart_date());
 			pst.setString(3, homeobj.getEnd_date());
 			pst.setString(4, homeobj.getEmergency_contact());
 			pst.setString(5, homeobj.getReason());
+			pst.setString(6, homeobj.getHostel_name());
 
 			int i=pst.executeUpdate();
 			if(i>0)
@@ -381,12 +488,13 @@ public class GirlStudDAO
 		int j;
 		try {
 			connectionobject=ConnectionByStaticMethod.getMySQLConnection();
-			pst=connectionobject.prepareStatement("insert into room_service values(?,?,?,?,?)");
+			pst=connectionobject.prepareStatement("insert into room_service values(?,?,?,?,?,?)");
 			pst.setString(1, roomobj.getUni_roll());
 			pst.setString(2, roomobj.getRoom_no());
 			pst.setString(3, roomobj.getService());
 			pst.setString(4, roomobj.getAvailability_time());
 			pst.setString(5, roomobj.getHostel());
+			pst.setString(6, roomobj.getRef_no());
 
 			int i=pst.executeUpdate();
 			if(i>0)

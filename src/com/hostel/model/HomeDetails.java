@@ -6,6 +6,13 @@ public class HomeDetails {
 	private String end_date;
 	private String emergency_contact;
 	private String reason;
+	private String hostel_name;
+	public String getHostel_name() {
+		return hostel_name;
+	}
+	public void setHostel_name(String hostel_name) {
+		this.hostel_name = hostel_name;
+	}
 	public String getUni_roll() {
 		return uni_roll;
 	}

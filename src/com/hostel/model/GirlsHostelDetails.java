@@ -11,7 +11,20 @@ public class GirlsHostelDetails {
 	private String address;
 	private String mobile;
 	private String hostel_name;
-
+	private String flag;
+	private String parent_mob;
+	public String getFlag() {
+		return flag;
+	}
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
+	public String getParent_mob() {
+		return parent_mob;
+	}
+	public void setParent_mob(String parent_mob) {
+		this.parent_mob = parent_mob;
+	}
 	public String getHostel_name() {
 		return hostel_name;
 	}
