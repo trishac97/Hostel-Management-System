@@ -62,7 +62,7 @@ public class Laundry_service extends HttpServlet {
 	       lauobj.setDate(today);
 	       lauobj.setQuantity(quantity);
 	       lauobj.setRef_no(rand);
-	       boolean replyfromdao = cdaoobj.laundry(lauobj);
+	       boolean replyfromdao = cdaoobj.laundry_girls(lauobj);
 	        String nextviewpage="";
 		    String reply="Laundry details is being recorded for Reference number: "+rand;
 		    if(replyfromdao)

@@ -126,11 +126,11 @@ tr:nth-child(even){background-color: #f2f2f2}
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li>
+                       <li>
                             <a href="Notice.jsp" class="waves-effect"><i class="fa fa-bell m-r-10" aria-hidden="true"></i>Notice Board</a>
                         </li>
                         <li>
-                            <a href="profile.jsp" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile</a>
+                            <a href="profile_details_fetch" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile</a>
                         </li>
                         <li>
                             <a href="Food-service.jsp" class="waves-effect"><i class="fa fa-cutlery m-r-10" aria-hidden="true"></i>Food Service</a>
@@ -146,7 +146,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                         </li>
                         </li>
                         <li>
-                            <a href="Health-Care.jsp" class="waves-effect"><i class="fa fa-heartbeat m-r-10" aria-hidden="true"></i>Health Care</a>
+                            <a href="Health-Care.html" class="waves-effect"><i class="fa fa-heartbeat m-r-10" aria-hidden="true"></i>Health Care</a>
                         </li>
                     </ul>
                     <div class="text-center m-t-30">

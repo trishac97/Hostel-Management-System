@@ -98,7 +98,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                         <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                         <li class="nav-item hidden-sm-down">
                             <form class="app-search p-l-20">
-                                <h2><font color="#F8F8F8">Food Service</font></h2>
+                                <h2><font color="#F8F8F8">Complaints</font></h2>
                             </form>
                         </li>
                     </ul>
@@ -107,7 +107,7 @@ tr:nth-child(even){background-color: #f2f2f2}
                     <!-- ============================================================== -->
                     <ul class="navbar-nav my-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="profile-pic m-r-5" />Ujjwal Barman</a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="profile-pic m-r-5" />Administrator</a>
                         </li>
                     </ul>
                 </div>
@@ -133,31 +133,31 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <a href="Admin_complaint.jsp" class="waves-effect"><i class="fa fa-exclamation-circle m-r-10" aria-hidden="true"></i>Complaints</a>
                         </li>
                         <li>
-                            <a href="AdminMain.html" class="waves-effect"><i class="fa fa-list m-r-10" aria-hidden="true"></i>List of Girls</a>
+                            <a href="List_girl" class="waves-effect"><i class="fa fa-list m-r-10" aria-hidden="true"></i>List of Girls</a>
                         </li>
 						<li>
-                            <a href="AdminMain.html" class="waves-effect"><i class="fa fa-list m-r-10" aria-hidden="true"></i>List of Boys</a>
+                            <a href="List_boy" class="waves-effect"><i class="fa fa-list m-r-10" aria-hidden="true"></i>List of Boys</a>
                         </li>
                         <li>
-                            <a href="Food-service.html" class="waves-effect"><i class="fa fa-cutlery m-r-10" aria-hidden="true"></i>Food Items</a>
+                            <a href="Admin_food.jsp" class="waves-effect"><i class="fa fa-cutlery m-r-10" aria-hidden="true"></i>Food Items</a>
                         </li>
                         <li>
-                            <a href="Laundry-service.html" class="waves-effect"><i class="fa fa-archive m-r-10" aria-hidden="true"></i>Laundry Service</a>
+                            <a href="Admin_laundry.jsp" class="waves-effect"><i class="fa fa-archive m-r-10" aria-hidden="true"></i>Laundry Service</a>
                         </li>
                         <li>
-                            <a href="Home-In-out.html" class="waves-effect"><i class="fa fa-home m-r-10" aria-hidden="true"></i>Home In/Out Service</a>
+                            <a href="Admin_home_inout" class="waves-effect"><i class="fa fa-home m-r-10" aria-hidden="true"></i>Home In/Out Service</a>
                         </li>
                         <li>
-                            <a href="Room-Service.html" class="waves-effect"><i class="fa fa-trash m-r-10" aria-hidden="true"></i>Room Service</a>
+                            <a href="room_service_req" class="waves-effect"><i class="fa fa-trash m-r-10" aria-hidden="true"></i>Room Service</a>
                         </li>
                         <li>
-                            <a href="AdminMedical.html" class="waves-effect"><i class="fa fa-heartbeat m-r-10" aria-hidden="true"></i>Medical</a>
+                            <a href="Admin_medical.jsp" class="waves-effect"><i class="fa fa-heartbeat m-r-10" aria-hidden="true"></i>Medical</a>
                         </li>
 						<li>
-                            <a href="AdminMain.html" class="waves-effect"><i class="fa fa-calculator m-r-10" aria-hidden="true"></i>Fees Calculation(Girls)</a>
+                            <a href="Admin_fees_girls" class="waves-effect"><i class="fa fa-calculator m-r-10" aria-hidden="true"></i>Fees Calculation(Girls)</a>
                         </li>
 						<li>
-                            <a href="AdminMain.html" class="waves-effect"><i class="fa fa-calculator m-r-10" aria-hidden="true"></i>Fees Calculation(Boys)</a>
+                            <a href="Admin_fees_boys" class="waves-effect"><i class="fa fa-calculator m-r-10" aria-hidden="true"></i>Fees Calculation(Boys)</a>
                         </li>
                     </ul>
                     <div class="text-center m-t-30">
@@ -217,7 +217,6 @@ tr:nth-child(even){background-color: #f2f2f2}
   if(breaklist != null)
   {
   %>
-  <h1>Complaints Table</h1><br>
  <table id="alter">  
    <tr>
       <th>University Roll</th>
@@ -257,7 +256,6 @@ tr:nth-child(even){background-color: #f2f2f2}
   if(breakslist != null)
   {
   %>
-  <h1>Complaints Table</h1><br>
  <table id="alter">  
    <tr>
       <th>University Roll</th>

@@ -7,7 +7,14 @@ public class RoomServiceDetails {
 	private String availability_time;
 	private String hostel;
 	private String ref_no;
+	private String flag;
 	
+	public String getFlag() {
+		return flag;
+	}
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
 	public String getRef_no() {
 		return ref_no;
 	}

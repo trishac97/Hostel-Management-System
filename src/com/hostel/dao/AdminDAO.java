@@ -38,6 +38,247 @@ import com.hostel.model.RoomServiceDetails;
 
 public class AdminDAO 
 {
+	public List<LaundryDetails> fetchAllLaundry() 
+	{
+		Connection connectionobject = null;
+		PreparedStatement pst = null;
+		ResultSet rs =null;
+		List<LaundryDetails> breaklist= new ArrayList<LaundryDetails>();
+		try
+		{
+			
+	         connectionobject = ConnectionByStaticMethod.getMySQLConnection();
+		     
+	        // Connection connectionobject = ConnectionFactoryBySingletonClass.getConnection();
+	      	 	         
+	         
+	            pst = connectionobject.prepareStatement("select * from laundry_girls");
+	         
+		     
+	         rs = pst.executeQuery();
+		     
+		     while(rs.next())
+		     {
+		    	 //CREATE CUSTOMER DETAIL OBJECT
+		    	 LaundryDetails breakobj = new LaundryDetails();
+		    	 
+		    	 //FETCH FROM RESULTSET & STORE VALUE WITIN OBJECT
+		    	breakobj.setUni_roll(rs.getString(1));
+		    	breakobj.setWeight(rs.getString(2));
+		    	breakobj.setPrice(rs.getString(3));
+		    	breakobj.setQuantity(rs.getString(4));
+		    	breakobj.setDate(rs.getString(5));
+		    	breakobj.setRef_no(rs.getString(6));
+		    	
+				
+				//ADDED TO THE ARRAYLIST
+				breaklist.add(breakobj);
+				
+		     }
+	    }catch(SQLException e){System.out.print(e.toString());}
+		finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+		   ConnectionByStaticMethod.closeMySQLResulsetConnection(rs);
+	       ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+		
+	    return breaklist;
+	}
+	
+	public List<HealthCareDetails> fetchAllMedicineGirls() 
+	{
+		Connection connectionobject = null;
+		PreparedStatement pst = null;
+		ResultSet rs =null;
+		List<HealthCareDetails> breaklist= new ArrayList<HealthCareDetails>();
+		try
+		{
+			
+	         connectionobject = ConnectionByStaticMethod.getMySQLConnection();
+		     
+	        // Connection connectionobject = ConnectionFactoryBySingletonClass.getConnection();
+	      	 	         
+	         
+	            pst = connectionobject.prepareStatement("select * from health_care_girl");
+	         
+		     
+	         rs = pst.executeQuery();
+		     
+		     while(rs.next())
+		     {
+		    	 //CREATE CUSTOMER DETAIL OBJECT
+		    	 HealthCareDetails breakobj = new HealthCareDetails();
+		    	 
+		    	 //FETCH FROM RESULTSET & STORE VALUE WITIN OBJECT
+		    	breakobj.setUni_roll(rs.getString(1));
+		    	breakobj.setRoom_no(rs.getString(2));
+		    	breakobj.setHostel(rs.getString(3));
+		    	breakobj.setMed_name(rs.getString(4));
+		    	breakobj.setPrice(rs.getString(5));
+		    	breakobj.setQuantity(rs.getString(6));
+		    	
+				
+				//ADDED TO THE ARRAYLIST
+				breaklist.add(breakobj);
+				
+		     }
+	    }catch(SQLException e){System.out.print(e.toString());}
+		finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+		   ConnectionByStaticMethod.closeMySQLResulsetConnection(rs);
+	       ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+		
+	    return breaklist;
+	}
+	
+	public List<HealthCareDetails> fetchAllMedicineBoys() 
+	{
+		Connection connectionobject = null;
+		PreparedStatement pst = null;
+		ResultSet rs =null;
+		List<HealthCareDetails> breaklist= new ArrayList<HealthCareDetails>();
+		try
+		{
+			
+	         connectionobject = ConnectionByStaticMethod.getMySQLConnection();
+		     
+	        // Connection connectionobject = ConnectionFactoryBySingletonClass.getConnection();
+	      	 	         
+	         
+	            pst = connectionobject.prepareStatement("select * from health_care_boy");
+	         
+		     
+	         rs = pst.executeQuery();
+		     
+		     while(rs.next())
+		     {
+		    	 //CREATE CUSTOMER DETAIL OBJECT
+		    	 HealthCareDetails breakobj = new HealthCareDetails();
+		    	 
+		    	 //FETCH FROM RESULTSET & STORE VALUE WITIN OBJECT
+		    	breakobj.setUni_roll(rs.getString(1));
+		    	breakobj.setRoom_no(rs.getString(2));
+		    	breakobj.setHostel(rs.getString(3));
+		    	breakobj.setMed_name(rs.getString(4));
+		    	breakobj.setPrice(rs.getString(5));
+		    	breakobj.setQuantity(rs.getString(6));
+		    	
+				
+				//ADDED TO THE ARRAYLIST
+				breaklist.add(breakobj);
+				
+		     }
+	    }catch(SQLException e){System.out.print(e.toString());}
+		finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+		   ConnectionByStaticMethod.closeMySQLResulsetConnection(rs);
+	       ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+		
+	    return breaklist;
+	}
+	
+	public List<RoomServiceDetails> fetchAllRoomService() 
+	{
+		Connection connectionobject = null;
+		PreparedStatement pst = null;
+		ResultSet rs =null;
+		List<RoomServiceDetails> breaklist= new ArrayList<RoomServiceDetails>();
+		try
+		{
+			
+	         connectionobject = ConnectionByStaticMethod.getMySQLConnection();
+		     
+	        // Connection connectionobject = ConnectionFactoryBySingletonClass.getConnection();
+	      	 	         
+	         
+	            pst = connectionobject.prepareStatement("select * from room_service");
+	         
+		     
+	         rs = pst.executeQuery();
+		     
+		     while(rs.next())
+		     {
+		    	 //CREATE CUSTOMER DETAIL OBJECT
+		    	 RoomServiceDetails breakobj = new RoomServiceDetails();
+		    	 
+		    	 //FETCH FROM RESULTSET & STORE VALUE WITIN OBJECT
+		    	breakobj.setUni_roll(rs.getString(1));
+		    	breakobj.setRoom_no(rs.getString(2));
+		    	breakobj.setService(rs.getString(3));
+		    	breakobj.setAvailability_time(rs.getString(4));
+		    	breakobj.setHostel(rs.getString(5));
+		    	breakobj.setRef_no(rs.getString(6));
+		    	breakobj.setFlag(rs.getString(7));
+
+				
+				//ADDED TO THE ARRAYLIST
+				breaklist.add(breakobj);
+				
+		     }
+	    }catch(SQLException e){System.out.print(e.toString());}
+		finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+		   ConnectionByStaticMethod.closeMySQLResulsetConnection(rs);
+	       ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+		
+	    return breaklist;
+	}
+	
+	public List<LaundryDetails> fetchAllLaundry2() 
+	{
+		Connection connectionobject = null;
+		PreparedStatement pst = null;
+		ResultSet rs =null;
+		List<LaundryDetails> breaklist= new ArrayList<LaundryDetails>();
+		try
+		{
+			
+	         connectionobject = ConnectionByStaticMethod.getMySQLConnection();
+		     
+	        // Connection connectionobject = ConnectionFactoryBySingletonClass.getConnection();
+	      	 	         
+	         
+	            pst = connectionobject.prepareStatement("select * from laundry_boy");
+	         
+		     
+	         rs = pst.executeQuery();
+		     
+		     while(rs.next())
+		     {
+		    	 //CREATE CUSTOMER DETAIL OBJECT
+		    	 LaundryDetails breakobj = new LaundryDetails();
+		    	 
+		    	 //FETCH FROM RESULTSET & STORE VALUE WITIN OBJECT
+		    	breakobj.setUni_roll(rs.getString(1));
+		    	breakobj.setWeight(rs.getString(2));
+		    	breakobj.setPrice(rs.getString(3));
+		    	breakobj.setQuantity(rs.getString(4));
+		    	breakobj.setDate(rs.getString(5));
+		    	breakobj.setRef_no(rs.getString(6));
+		    	
+				
+				//ADDED TO THE ARRAYLIST
+				breaklist.add(breakobj);
+				
+		     }
+	    }catch(SQLException e){System.out.print(e.toString());}
+		finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+		   ConnectionByStaticMethod.closeMySQLResulsetConnection(rs);
+	       ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+		
+	    return breaklist;
+	}
+	
 	public boolean submitNotice(NoticeBoardDetails comobj) {
 		Connection connectionobject=null;
 		PreparedStatement pst=null;
@@ -65,6 +306,114 @@ public class AdminDAO
 		 }
 		
 	    return f;
+	}
+	public String calculateFees(String uni_roll) {
+		Connection connectionobject=null;
+		PreparedStatement pst = null,pst1=null,pst2=null;
+		ResultSet rs=null;
+		int fees=0;
+		boolean f=false;
+		String total_fees=null;
+		int j;
+		try {
+			connectionobject=ConnectionByStaticMethod.getMySQLConnection();
+			pst=connectionobject.prepareStatement("select price from health_care_girl where uni_roll=?");
+			pst.setString(1, uni_roll);
+
+			rs=pst.executeQuery();
+			while(rs.next()) {
+				int result = Integer.parseInt(rs.getString(1));			
+				fees+=result;
+				
+			}
+
+			pst1=connectionobject.prepareStatement("select price from laundry_girls where uni_roll=?");
+			pst.setString(1, uni_roll);
+
+			rs=pst.executeQuery();
+			while(rs.next()) {
+				int result = Integer.parseInt(rs.getString(1));			
+				fees+=result;
+		}
+			pst2=connectionobject.prepareStatement("select price from meal_booking_girls where uni_roll=?");
+			pst.setString(1, uni_roll);
+
+			rs=pst.executeQuery();
+			while(rs.next()) {
+				int result = Integer.parseInt(rs.getString(1));			
+				fees+=result;
+		}
+			fees+=30000;
+			 total_fees = Integer.toString(fees);
+		}
+			
+			
+		
+		catch(SQLException e){System.out.print(e.toString());}
+	     finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst1);
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+
+		   ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+		
+		return total_fees;
+	}
+	public String calculateFees2(String uni_roll) {
+		Connection connectionobject=null;
+		PreparedStatement pst = null,pst1=null,pst2=null;
+		ResultSet rs=null;
+		int fees=0;
+		boolean f=false;
+		String total_fees=null;
+		int j;
+		try {
+			connectionobject=ConnectionByStaticMethod.getMySQLConnection();
+			pst=connectionobject.prepareStatement("select price from health_care_boy where uni_roll=?");
+			pst.setString(1, uni_roll);
+
+			rs=pst.executeQuery();
+			while(rs.next()) {
+				int result = Integer.parseInt(rs.getString(1));			
+				fees+=result;
+				
+			}
+
+			pst1=connectionobject.prepareStatement("select price from laundry_boy where uni_roll=?");
+			pst.setString(1, uni_roll);
+
+			rs=pst.executeQuery();
+			while(rs.next()) {
+				int result = Integer.parseInt(rs.getString(1));			
+				fees+=result;
+		}
+			pst2=connectionobject.prepareStatement("select price from meal_booking_boy where uni_roll=?");
+			pst.setString(1, uni_roll);
+
+			rs=pst.executeQuery();
+			while(rs.next()) {
+				int result = Integer.parseInt(rs.getString(1));			
+				fees+=result;
+		}
+			fees+=30000;
+			 total_fees = Integer.toString(fees);
+		}
+			
+			
+		
+		catch(SQLException e){System.out.print(e.toString());}
+	     finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst1);
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+
+		   ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+		
+		return total_fees;
 	}
 	public List<ComplaintGirlsDetails> fetchAllComplaint() 
 	{
@@ -307,6 +656,55 @@ public class AdminDAO
 		
 	    return breaklist;
 	}
+	public List<LaundryDetails> fetchLaundryRequest() 
+	{
+		Connection connectionobject = null;
+		PreparedStatement pst = null;
+		ResultSet rs =null;
+		List<LaundryDetails> breaklist= new ArrayList<LaundryDetails>();
+		try
+		{
+			
+	         connectionobject = ConnectionByStaticMethod.getMySQLConnection();
+		     
+	        // Connection connectionobject = ConnectionFactoryBySingletonClass.getConnection();
+	      	 	         
+	         
+	            pst = connectionobject.prepareStatement("select * from laundry");
+	         
+		     
+	         rs = pst.executeQuery();
+		     
+		     while(rs.next())
+		     {
+		    	 //CREATE CUSTOMER DETAIL OBJECT
+		    	LaundryDetails breakobj = new LaundryDetails();
+		    	 
+		    	 //FETCH FROM RESULTSET & STORE VALUE WITIN OBJECT
+		    	breakobj.setUni_roll(rs.getString(1));
+		    	breakobj.setWeight(rs.getString(2));
+		    	breakobj.setPrice(rs.getString(3));
+		    	
+		    	breakobj.setQuantity(rs.getString(4));
+		    	breakobj.setDate(rs.getString(5));
+		    	breakobj.setRef_no(rs.getString(6));
+		    	
+
+
+				//ADDED TO THE ARRAYLIST
+				breaklist.add(breakobj);
+				
+		     }
+	    }catch(SQLException e){System.out.print(e.toString());}
+		finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+		   ConnectionByStaticMethod.closeMySQLResulsetConnection(rs);
+	       ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+		
+	    return breaklist;
+	}
 	public boolean studentEnable(String uni_roll) 
 	{
 		Connection connectionobject = null;
@@ -323,6 +721,40 @@ public class AdminDAO
 	         pst = connectionobject.prepareStatement("update stud_girl set flag='true' where uni_roll=?");
 		     
 		     pst.setString(1, uni_roll);
+		    	     
+		     int i=pst.executeUpdate();
+				if(i>0)
+					f=true;
+		
+		     
+		    
+		     
+	    }catch(SQLException e){System.out.print(e.toString());}
+	     finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+		   ConnectionByStaticMethod.closeMySQLResulsetConnection(rs);
+	       ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+		
+	    return f;
+	}
+	public boolean serviceAvailed(String ref_no) 
+	{
+		Connection connectionobject = null;
+		PreparedStatement pst = null;
+		ResultSet rs =null;
+		boolean f=false;
+
+		try
+		{
+	         connectionobject = ConnectionByStaticMethod.getMySQLConnection();
+		     
+	        // connectionobject = ConnectionFactoryBySingletonClass.getConnection();
+	      	         
+	         pst = connectionobject.prepareStatement("update room_service set flag='true' where ref_no=?");
+		     
+		     pst.setString(1, ref_no);
 		    	     
 		     int i=pst.executeUpdate();
 				if(i>0)

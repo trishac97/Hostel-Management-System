@@ -59,6 +59,7 @@ public class room_service extends HttpServlet {
 	       roomobj.setHostel(hostel);
 	       roomobj.setService(service);
 	       roomobj.setRef_no(rand);
+	       roomobj.setFlag("false");
 
 	       roomobj.setAvailability_time(availability_time);
 

@@ -228,7 +228,7 @@ tr:nth-child(even) {
 
 </div><br><br><br>
 <h1> Fill in the form:</h1><br>
-<form action="Laundry_service" method="post">
+<form action="Laundry_service2" method="post">
   <div class="form-group">
                                         <label class="col-md-6">Weight</label>
                                         <div class="col-md-6">

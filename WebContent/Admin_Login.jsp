@@ -34,7 +34,7 @@
 
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('images_login/bg-01.jpg');">
-		  <div class="wrap-login100 p-t-30 p-b-50"><span class="login100-form-title p-b-41"> Girls' Hostel Login</span>
+		  <div class="wrap-login100 p-t-30 p-b-50"><span class="login100-form-title p-b-41"> Administrator Login</span>
 		   <div style="color: red;padding-left: 75px"><b>
     				<%
         if(request.getAttribute("errormsg") != null)
@@ -45,7 +45,7 @@
 			  <form class="login100-form validate-form p-b-33 p-t-5" action="Admin_Login" method="get">
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="uni_roll" placeholder="University Roll">
+						<input class="input100" type="text" name="uni_roll" placeholder="Username">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
@@ -61,7 +61,6 @@
 					</div>
 
 				</form>
-<strong><a href="Reg_girl.jsp"><font color="white"><center>Click Here to Register</center></font></a></strong>
 <label></label>
 			</div>
 		</div>

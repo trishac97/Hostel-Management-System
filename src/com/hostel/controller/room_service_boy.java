@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.hostel.dao.BoyStudDAO;
 import com.hostel.dao.GirlStudDAO;
 import com.hostel.model.BreakfastDetails;
 import com.hostel.model.ComplaintDetails;
@@ -40,7 +41,7 @@ public class room_service_boy extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	      
 	      //CREATE OBJECT OF DAO CLASS
-		GirlStudDAO cdaoobj=new GirlStudDAO(); 	 
+		BoyStudDAO cdaoobj=new BoyStudDAO(); 	 
 		RoomServiceDetails roomobj=new RoomServiceDetails();
 		HttpSession session = request.getSession(true);
 		 Random r=new Random();
@@ -53,28 +54,28 @@ public class room_service_boy extends HttpServlet {
 	       String availability_time=(String)request.getParameter("availability_time");
 
 
-
 	       roomobj.setUni_roll(uni_roll);
 	       roomobj.setRoom_no(room_no);
 	       roomobj.setHostel(hostel);
 	       roomobj.setService(service);
 	       roomobj.setRef_no(rand);
+	       roomobj.setFlag("false");
 
 	       roomobj.setAvailability_time(availability_time);
 
 
-	       boolean replyfromdao = cdaoobj.room_service(roomobj);
+	       boolean replyfromdao = cdaoobj.room_service_boy(roomobj);
 	        String nextviewpage="";
 		    String reply="Room service is being recorded against Reference number:" +rand+". You will be served as soon as possible";
 		    if(replyfromdao)
 		    {
 		    	request.setAttribute("errormsg", reply);
-		    	nextviewpage ="Room-Service.jsp";
+		    	nextviewpage ="Room-Service_boy.jsp";
 		    }
 		    else
 		    {
 		    	request.setAttribute("errormsg", "Oops! Something went wrong.");
-		    	nextviewpage ="Room-Service.jsp";
+		    	nextviewpage ="Room-Service_boy.jsp";
 		    }
 		          
 		    RequestDispatcher rd = request.getRequestDispatcher(nextviewpage);

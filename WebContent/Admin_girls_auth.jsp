@@ -103,7 +103,8 @@ tr:nth-child(even) {
                         <li class="nav-item"><a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                         <li class="nav-item hidden-sm-down">
                             <form class="app-search p-l-20">
-                                <h2><font color="#F8F8F8">Health Service</font></h2>
+                                <h2><font color="#F8F8F8">List of Girl Hostelers
+</font></h2>
                             </form>
                         </li>
                     </ul>
@@ -112,7 +113,7 @@ tr:nth-child(even) {
                     <!-- ============================================================== -->
                     <ul class="navbar-nav my-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="profile-pic m-r-5" /><%= first_name %></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="profile-pic m-r-5" />Administrator</a>
                         </li>
                     </ul>
                 </div>
@@ -130,7 +131,7 @@ tr:nth-child(even) {
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li>
+                       <li>
                             <a href="Admin_notice.jsp" class="waves-effect"><i class="fa fa-bell m-r-10" aria-hidden="true"></i>Notice Display</a>
                         </li>
 						<li>
@@ -140,28 +141,28 @@ tr:nth-child(even) {
                             <a href="List_girl" class="waves-effect"><i class="fa fa-list m-r-10" aria-hidden="true"></i>List of Girls</a>
                         </li>
 						<li>
-                            <a href="AdminMain.html" class="waves-effect"><i class="fa fa-list m-r-10" aria-hidden="true"></i>List of Boys</a>
+                            <a href="List_boy" class="waves-effect"><i class="fa fa-list m-r-10" aria-hidden="true"></i>List of Boys</a>
                         </li>
                         <li>
-                            <a href="Food-service.html" class="waves-effect"><i class="fa fa-cutlery m-r-10" aria-hidden="true"></i>Food Items</a>
+                            <a href="Admin_food.jsp" class="waves-effect"><i class="fa fa-cutlery m-r-10" aria-hidden="true"></i>Food Items</a>
                         </li>
                         <li>
-                            <a href="Laundry-service.html" class="waves-effect"><i class="fa fa-archive m-r-10" aria-hidden="true"></i>Laundry Service</a>
+                            <a href="Admin_laundry.jsp" class="waves-effect"><i class="fa fa-archive m-r-10" aria-hidden="true"></i>Laundry Service</a>
                         </li>
                         <li>
-                            <a href="Home-In-out.html" class="waves-effect"><i class="fa fa-home m-r-10" aria-hidden="true"></i>Home In/Out Service</a>
+                            <a href="Admin_home_inout" class="waves-effect"><i class="fa fa-home m-r-10" aria-hidden="true"></i>Home In/Out Service</a>
                         </li>
                         <li>
-                            <a href="Room-Service.html" class="waves-effect"><i class="fa fa-trash m-r-10" aria-hidden="true"></i>Room Service</a>
+                            <a href="room_service_req" class="waves-effect"><i class="fa fa-trash m-r-10" aria-hidden="true"></i>Room Service</a>
                         </li>
                         <li>
-                            <a href="AdminMedical.html" class="waves-effect"><i class="fa fa-heartbeat m-r-10" aria-hidden="true"></i>Medical</a>
+                            <a href="Admin_medical.jsp" class="waves-effect"><i class="fa fa-heartbeat m-r-10" aria-hidden="true"></i>Medical</a>
                         </li>
 						<li>
-                            <a href="AdminMain.html" class="waves-effect"><i class="fa fa-calculator m-r-10" aria-hidden="true"></i>Fees Calculation(Girls)</a>
+                            <a href="Admin_fees_girls" class="waves-effect"><i class="fa fa-calculator m-r-10" aria-hidden="true"></i>Fees Calculation(Girls)</a>
                         </li>
 						<li>
-                            <a href="AdminMain.html" class="waves-effect"><i class="fa fa-calculator m-r-10" aria-hidden="true"></i>Fees Calculation(Boys)</a>
+                            <a href="Admin_fees_boys" class="waves-effect"><i class="fa fa-calculator m-r-10" aria-hidden="true"></i>Fees Calculation(Boys)</a>
                         </li>
                     </ul>
                     <div class="text-center m-t-30">
@@ -203,7 +204,6 @@ tr:nth-child(even) {
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
   				
-		                        <marquee style="background-color: rgba(0,0,255,0.2);padding-top: 5px;padding-bottom: 5px"><h5>Please refer to the list of medicines that are available</h5></marquee>
 
 	<div style="color: blue;padding-left: 500px;background-color: rgba(0,0,255,0.1);margin-bottom: 20px"><b>
                                 
@@ -221,7 +221,6 @@ tr:nth-child(even) {
   <%
   hlist=(List<GirlsHostelDetails>)request.getAttribute("servermsg");
   if(hlist!=null){%>
-   <h1>List of Girl Hostelers</h1>
 <table>
  
   <tr>

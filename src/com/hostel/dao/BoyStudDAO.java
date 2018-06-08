@@ -25,10 +25,151 @@ import com.hostel.model.BreakfastDetails;
 import com.hostel.model.ComplaintDetails;
 import com.hostel.model.GirlsHostelDetails;
 import com.hostel.model.HealthCareChartDetails;
+import com.hostel.model.HealthCareDetails;
 import com.hostel.model.LaundryChartDetails;
+import com.hostel.model.LaundryDetails;
 import com.hostel.model.MealBookingDetails;
+import com.hostel.model.RoomServiceDetails;
 public class BoyStudDAO 
 {
+	public boolean room_service_boy(RoomServiceDetails roomobj) {
+		Connection connectionobject=null;
+		PreparedStatement pst=null;
+		boolean f=false;
+		int j;
+		try {
+			connectionobject=ConnectionByStaticMethod.getMySQLConnection();
+			pst=connectionobject.prepareStatement("insert into room_service values(?,?,?,?,?,?,?)");
+			pst.setString(1, roomobj.getUni_roll());
+			pst.setString(2, roomobj.getRoom_no());
+			pst.setString(3, roomobj.getService());
+			pst.setString(4, roomobj.getAvailability_time());
+			pst.setString(5, roomobj.getHostel());
+			pst.setString(6, roomobj.getRef_no());
+			pst.setString(7, roomobj.getFlag());
+
+			int i=pst.executeUpdate();
+			if(i>0)
+				f=true;
+		}
+			
+			
+		
+		catch(SQLException e){System.out.print(e.toString());}
+	     finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+
+		   ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+		
+	    return f;
+	}
+	public boolean health_care_girl(HealthCareDetails serobj) {
+		Connection connectionobject=null;
+		PreparedStatement pst=null;
+		boolean f=false;
+		int j;
+		try {
+			connectionobject=ConnectionByStaticMethod.getMySQLConnection();
+			pst=connectionobject.prepareStatement("insert into health_care_girl values(?,?,?,?,?,?)");
+			int tot_price=0;
+			String price=(String)serobj.getPrice();
+			String quantity=(String)serobj.getQuantity();
+			int p=Integer.parseInt(price);
+			int q=Integer.parseInt(quantity);
+			tot_price=p*q;
+			String total_price=Integer.toString(tot_price);
+			pst.setString(1, serobj.getUni_roll());
+			pst.setString(2, serobj.getRoom_no());
+			pst.setString(3, serobj.getHostel());
+			pst.setString(4, serobj.getMed_name());
+			pst.setString(5, total_price);
+			pst.setString(6, serobj.getQuantity());
+
+			int i=pst.executeUpdate();
+			if(i>0)
+				f=true;
+		}
+			
+			
+		
+		catch(SQLException e){System.out.print(e.toString());}
+	     finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+
+		   ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+		
+	    return f;
+	}
+	public boolean health_care_boy(HealthCareDetails serobj) {
+		Connection connectionobject=null;
+		PreparedStatement pst=null;
+		boolean f=false;
+		int j;
+		try {
+			connectionobject=ConnectionByStaticMethod.getMySQLConnection();
+			pst=connectionobject.prepareStatement("insert into health_care_boy values(?,?,?,?,?,?)");
+			int tot_price=0;
+			String price=(String)serobj.getPrice();
+			String quantity=(String)serobj.getQuantity();
+			int p=Integer.parseInt(price);
+			int q=Integer.parseInt(quantity);
+			tot_price=p*q;
+			String total_price=Integer.toString(tot_price);
+			pst.setString(1, serobj.getUni_roll());
+			pst.setString(2, serobj.getRoom_no());
+			pst.setString(3, serobj.getHostel());
+			pst.setString(4, serobj.getMed_name());
+			pst.setString(5, total_price);
+			pst.setString(6, serobj.getQuantity());
+
+			int i=pst.executeUpdate();
+			if(i>0)
+				f=true;
+		}
+		catch(SQLException e){System.out.print(e.toString());}
+	     finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+
+		   ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+	    return f;
+
+	}
+	public boolean laundry_boys(LaundryDetails lauobj) {
+		Connection connectionobject=null;
+		PreparedStatement pst=null;
+		boolean f=false;
+		int j;
+		try {
+			connectionobject=ConnectionByStaticMethod.getMySQLConnection();
+			pst=connectionobject.prepareStatement("insert into laundry_boy values(?,?,?,?,?,?)");
+			pst.setString(1, lauobj.getUni_roll());
+			pst.setString(2, lauobj.getWeight());
+			pst.setString(3, lauobj.getPrice());
+			pst.setString(4, lauobj.getQuantity());
+			pst.setString(5, lauobj.getDate());
+			pst.setString(6, lauobj.getRef_no());
+
+
+			int i=pst.executeUpdate();
+			if(i>0)
+				f=true;
+		}	
+		catch(SQLException e){System.out.print(e.toString());}
+	     finally 
+	     {
+		   ConnectionByStaticMethod.closeMySQLPreaparedStatementConnection(pst);
+
+		   ConnectionByStaticMethod.closeMySQLConnection(connectionobject);
+		 }
+		
+	    return f;
+	}
 	public String boyLogin(String uni_roll,String password) 
 	{
 		Connection connectionobject = null;
@@ -282,7 +423,7 @@ public class BoyStudDAO
 		System.out.println("U entered"+mealobj.getItem_code());
 		try {
 			connectionobject=ConnectionByStaticMethod.getMySQLConnection();
-			pst=connectionobject.prepareStatement("insert into meal_booking values(?,?,?,?,?)");
+			pst=connectionobject.prepareStatement("insert into meal_booking_boy values(?,?,?,?,?)");
 			pst.setString(1, mealobj.getUni_roll());
 			pst.setString(2, mealobj.getItem_code());
 			pst.setString(3, mealobj.getPrice());

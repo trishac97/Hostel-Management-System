@@ -100,7 +100,7 @@ tr:nth-child(even) {
                         <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                         <li class="nav-item hidden-sm-down">
                             <form class="app-search p-l-20">
-                                <h2><font color="#F8F8F8">Laundry Service</font></h2>
+                                <h2><font color="#F8F8F8">Health Care</font></h2>
                             </form>
                         </li>
                     </ul>

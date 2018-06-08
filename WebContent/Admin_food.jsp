@@ -142,22 +142,22 @@ tr:nth-child(even){background-color: #f2f2f2}
                             <a href="Admin_food.jsp" class="waves-effect"><i class="fa fa-cutlery m-r-10" aria-hidden="true"></i>Food Items</a>
                         </li>
                         <li>
-                            <a href="Laundry-service.html" class="waves-effect"><i class="fa fa-archive m-r-10" aria-hidden="true"></i>Laundry Service</a>
+                            <a href="Admin_laundry.jsp" class="waves-effect"><i class="fa fa-archive m-r-10" aria-hidden="true"></i>Laundry Service</a>
                         </li>
                         <li>
-                            <a href="Home-In-out.html" class="waves-effect"><i class="fa fa-home m-r-10" aria-hidden="true"></i>Home In/Out Service</a>
+                            <a href="Admin_home_inout" class="waves-effect"><i class="fa fa-home m-r-10" aria-hidden="true"></i>Home In/Out Service</a>
                         </li>
                         <li>
-                            <a href="Room-Service.html" class="waves-effect"><i class="fa fa-trash m-r-10" aria-hidden="true"></i>Room Service</a>
+                            <a href="room_service_req" class="waves-effect"><i class="fa fa-trash m-r-10" aria-hidden="true"></i>Room Service</a>
                         </li>
                         <li>
-                            <a href="AdminMedical.html" class="waves-effect"><i class="fa fa-heartbeat m-r-10" aria-hidden="true"></i>Medical</a>
+                            <a href="Admin_medical.jsp" class="waves-effect"><i class="fa fa-heartbeat m-r-10" aria-hidden="true"></i>Medical</a>
                         </li>
 						<li>
-                            <a href="AdminMain.html" class="waves-effect"><i class="fa fa-calculator m-r-10" aria-hidden="true"></i>Fees Calculation(Girls)</a>
+                            <a href="Admin_fees_girls" class="waves-effect"><i class="fa fa-calculator m-r-10" aria-hidden="true"></i>Fees Calculation(Girls)</a>
                         </li>
 						<li>
-                            <a href="AdminMain.html" class="waves-effect"><i class="fa fa-calculator m-r-10" aria-hidden="true"></i>Fees Calculation(Boys)</a>
+                            <a href="Admin_fees_boys" class="waves-effect"><i class="fa fa-calculator m-r-10" aria-hidden="true"></i>Fees Calculation(Boys)</a>
                         </li>
                     </ul>
                     <div class="text-center m-t-30">

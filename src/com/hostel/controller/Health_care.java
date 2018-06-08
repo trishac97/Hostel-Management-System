@@ -65,18 +65,18 @@ public class Health_care extends HttpServlet {
 	       serobj.setQuantity(quantity);
 	       serobj.setRef_no(rand);
 
-	       boolean replyfromdao = cdaoobj.health_care(serobj);
+	       boolean replyfromdao = cdaoobj.health_care_girl(serobj);
 	        String nextviewpage="";
 		    String reply="Medicine purchase details is being recorded with ref_no: "+rand;
 		    if(replyfromdao)
 		    {
 		    	request.setAttribute("errormsg", reply);
-		    	nextviewpage ="Health-Care_boy.jsp";
+		    	nextviewpage ="Health-Care.jsp";
 		    }
 		    else
 		    {
 		    	request.setAttribute("errormsg", "Oops! Something went wrong.");
-		    	nextviewpage ="Health-Care_boy.jsp";
+		    	nextviewpage ="Health-Care.jsp";
 		    }
 		          
 		    RequestDispatcher rd = request.getRequestDispatcher(nextviewpage);
